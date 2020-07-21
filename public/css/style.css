@@ -1,0 +1,30 @@
+body{
+	
+}
+
+.video-image-thumb{
+	padding-left: 15px;
+}
+
+.video-image-mask{
+	width: 180px;
+	height: 100px;
+	overflow: hidden;
+}
+
+.video-image-mask .video-image{
+	width: 105%;
+}
+
+.video-title{
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.video-title a{
+	color: #444;
+}
+
+.btn-filter{
+	margin-top:5px;
+}
