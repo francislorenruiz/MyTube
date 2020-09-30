@@ -25,6 +25,14 @@ Route::get('/', array(
     'uses' => 'HomeController@index'
 ));
 
+// Ruta de eliminar usuario
+Route::get('/delete-usuario/{user_id}', array(
+    'as' => 'userDelete',
+    'middleware' => 'auth',
+    'uses' => 'UserController@delete'
+));
+
+
 // Rutas del contronlador de videos
 Route::get('/crear-video', array(
     'as' => 'createVideo',
