@@ -64,16 +64,37 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a href="#borrarUsuarioModal{{Auth::user()->name}}" role="button" class="dropdown-item" data-toggle="modal">Eliminar usuario</a>   
+                                	<a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
                                 </div>
+                                
+                                <!-- Modal / Ventana / Overlay en HTML -->
+                              	<div id="borrarUsuarioModal{{Auth::user()->name}}" class="modal fade">
+                                	<div class="modal-dialog">
+                                    	<div class="modal-content">
+                       	                	<div class="modal-header">
+                                            	<h4 class="modal-title">¿Estás seguro?</h4>
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            </div>
+                                            <div class="modal-body">
+                                            	<p>¿Seguro que quieres borrar tu usario?</p>
+                                            	<p>Esta acción eliminará también todos tus vídeos y comentarios.</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                            	<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                            	<a href="{{ route('userDelete', Auth::user()->id) }}" type="button" class="btn btn-danger">Eliminar</a>
+                                            </div>
+                                    	</div>
+                                 	</div>
+                                 </div>
+                                
+                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                 	@csrf
+                                 </form>
                             </li>
                         @endguest
                     </ul>
@@ -88,7 +109,7 @@
         <footer class="col-md-10 offset-md-1">
         	<hr/>
         	<p>
-        		MyTube, una pequeño portal de vídeos
+        		MyTube, un pequeño portal de vídeos
         	</p>
         </footer>
     </div>
